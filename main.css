@@ -1,5 +1,6 @@
 body {
 	font-family: "Montserrat";
+	color: #161c1c;
 }
 
 table {
@@ -22,4 +23,10 @@ td {
 
 .sessionLine {
 	font-size: 60px;
+}
+
+.fa {
+	font-size: 26px;
+	padding-right: 13px;
+	padding-left: 13px;
 }

@@ -14,24 +14,26 @@ var stop = document.querySelector(".fa-stop");
 var breakCount = 5;
 var session = 25;
 var fullSeconds = session*60;
-// var counting = false;
 var temp;
+var on = false;
 
 play.addEventListener("click", function() {
-	// counting = true;
-	temp = setInterval(countdown, 1000);
+	if (on == false) {
+		on = true;
+		temp = setInterval(countdown, 1000);
+	}	
 });
 
 pause.addEventListener("click", function() {
-	// counting = false;
 	clearInterval(temp);
+	on = false;
 });
 
 stop.addEventListener("click", function() {
-	// counting = false;
 	clearInterval(temp);
 	sessionDisplaySeconds.textContent = 00;
 	sessionDisplay.textContent = session;
+	on = false;
 });
 
 function countdown() {

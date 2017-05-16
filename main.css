@@ -1,0 +1,17 @@
+body {
+	font-family: "Montserrat";
+}
+
+table {
+	margin: 100px auto;
+	text-align: center;
+}
+
+div {
+	text-align: center;
+	width: 27%;
+	background-color: #6bc4c4;
+	margin: auto;
+	padding: 3%;
+	border-radius: 10px;
+}

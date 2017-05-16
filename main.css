@@ -4,17 +4,20 @@ body {
 }
 
 table {
-	margin: 100px auto 30px auto;
+	margin: 60px auto 30px auto;
 	text-align: center;
 }
 
 td {
-	padding: 30px;
+	padding: 8%;
+	background-color: #6bc4c4;
+	border-radius: 10px;
 }
 
 .clock {
 	text-align: center;
 	width: 27%;
+	min-width: 322px;
 	background-color: #6bc4c4;
 	margin: auto;
 	padding: 3%;

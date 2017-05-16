@@ -12,6 +12,7 @@ var stop = document.querySelector(".fa-stop");
 // var  = document.querySelector(".");
 
 var breakCount = 5;
+var breakSeconds = breakCount * 60;
 var session = 25;
 var fullSeconds = session*60;
 var temp;
@@ -31,34 +32,60 @@ pause.addEventListener("click", function() {
 
 stop.addEventListener("click", function() {
 	clearInterval(temp);
-	sessionDisplaySeconds.textContent = 00;
+	sessionDisplaySeconds.textContent = "00";
 	sessionDisplay.textContent = session;
 	on = false;
 });
 
 function countdown() {
-	if (fullSeconds >= 0) {
+	if (fullSeconds > 0) {
 		fullSeconds--;
-		sessionDisplaySeconds.textContent = fullSeconds % 60;
+		if (fullSeconds % 60 < 10) {
+			sessionDisplaySeconds.textContent = "0" + fullSeconds % 60
+		} else {
+			sessionDisplaySeconds.textContent = (fullSeconds % 60);
+		}
 		sessionDisplay.textContent = Math.floor(fullSeconds/60);
-		console.log(fullSeconds);
+	}
+	else {
+		clearInterval(temp);
+		sessionDisplay.textContent = breakCount;
+		temp = setInterval(breakCountdown, 1000);
+	}
+}
+
+function breakCountdown() {
+	if (breakSeconds > 0) {
+		breakSeconds--;
+		if (breakSeconds % 60 < 10) {
+			sessionDisplaySeconds.textContent = "0" + breakSeconds % 60;
+		} else {
+			sessionDisplaySeconds.textContent = breakSeconds % 60;
+		}
+		sessionDisplay.textContent = Math.floor(breakSeconds/60);
+	}
+	else {
+		clearInterval(temp);
+		on = false;
 	}
 }
 
 breakMinus.addEventListener("click", function() {
-	if (breakCount > 0) {
+	if (breakCount > 1) {
 		breakCount--;
+		breakSeconds = breakCount * 60;
 		breakTime.textContent = breakCount;
 	}
 });
 
 breakPlus.addEventListener("click", function() {
 		breakCount++;
+		breakSeconds = breakCount * 60;
 		breakTime.textContent = breakCount;
 });
 
 sessionMinus.addEventListener("click", function() {
-	if (session > 0) {
+	if (session > 1) {
 		session--;
 		sessionTime.textContent = session;
 		sessionDisplay.textContent = session;
@@ -68,7 +95,7 @@ sessionMinus.addEventListener("click", function() {
 
 sessionPlus.addEventListener("click", function() {
 		session++;
-		sessionTime.textContent = session;
+		sessionTime.innerHTML = session;
 		sessionDisplay.textContent = session;
 		fullSeconds = session*60;
 });

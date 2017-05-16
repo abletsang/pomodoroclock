@@ -3,11 +3,15 @@ body {
 }
 
 table {
-	margin: 100px auto;
+	margin: 100px auto 30px auto;
 	text-align: center;
 }
 
-div {
+td {
+	padding: 30px;
+}
+
+.clock {
 	text-align: center;
 	width: 27%;
 	background-color: #6bc4c4;

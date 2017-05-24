@@ -3,7 +3,7 @@ var breakPlus = document.querySelector(".breakPlus");
 var breakTime = document.querySelector(".breakTime");
 var sessionMinus = document.querySelector(".sessionMinus");
 var sessionPlus = document.querySelector(".sessionPlus");
-var sessionTime = document.querySelectorAll(".sessionTime");
+var sessionTime = document.querySelector(".sessionTime");
 var sessionDisplay = document.querySelector(".sessionDisplay");
 var sessionDisplaySeconds = document.querySelector(".sessionDisplaySeconds");
 var play = document.querySelector(".fa-play");
@@ -84,6 +84,8 @@ breakPlus.addEventListener("click", function() {
 		breakTime.textContent = breakCount;
 });
 
+// for some reason, sessionTime.textContent in the two below functions do not work
+
 sessionMinus.addEventListener("click", function() {
 	if (session > 1) {
 		session--;
@@ -95,7 +97,7 @@ sessionMinus.addEventListener("click", function() {
 
 sessionPlus.addEventListener("click", function() {
 		session++;
-		sessionTime.innerHTML = session;
+		sessionTime.textContent = session;
 		sessionDisplay.textContent = session;
 		fullSeconds = session*60;
 });

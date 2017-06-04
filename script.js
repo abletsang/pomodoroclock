@@ -1,3 +1,5 @@
+"use strict";
+
 var breakMinus = document.querySelector(".breakMinus");
 var breakPlus = document.querySelector(".breakPlus");
 var breakTime = document.querySelector(".breakTime");
@@ -9,7 +11,6 @@ var sessionDisplaySeconds = document.querySelector(".sessionDisplaySeconds");
 var play = document.querySelector(".fa-play");
 var pause = document.querySelector(".fa-pause");
 var stop = document.querySelector(".fa-stop");
-// var  = document.querySelector(".");
 
 var breakCount = 5;
 var breakSeconds = breakCount * 60;
@@ -19,7 +20,7 @@ var temp;
 var on = false;
 
 play.addEventListener("click", function() {
-	if (on == false) {
+	if (on === false) {
 		on = true;
 		temp = setInterval(countdown, 1000);
 	}	
@@ -83,8 +84,6 @@ breakPlus.addEventListener("click", function() {
 		breakSeconds = breakCount * 60;
 		breakTime.textContent = breakCount;
 });
-
-// for some reason, sessionTime.textContent in the two below functions do not work
 
 sessionMinus.addEventListener("click", function() {
 	if (session > 1) {
